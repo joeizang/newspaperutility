@@ -14,10 +14,10 @@ export class PriceCatalog
     @Column({ type: "date", nullable: false })
     month: Date;
 
-    @Column({ type: "smallmoney", nullable: false })
+    @Column({ type: "decimal", nullable: false })
     grandTotal: number;
 
-    @Column({type: "smallmoney", nullable: false})
+    @Column({type: "decimal", nullable: false})
     sumTotal: number;
 
     @OneToMany(type => Newspaper, newspapers => newspapers.priceCatalog, { 

@@ -9,13 +9,13 @@ export class Newspaper
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({length: 25, type: "text"})
+    @Column({ type: "text"})
     name: string;
 
-    @Column({type: "smallmoney"})
+    @Column({type: "decimal"})
     minPrice: number;
 
-    @Column({type: "smallmoney"})
+    @Column({type: "decimal"})
     maxPrice: number;
 
     @ManyToOne(type => PriceCatalog, priceCatalog => priceCatalog.newspapers, {

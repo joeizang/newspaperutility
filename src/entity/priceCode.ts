@@ -10,10 +10,10 @@ export class PriceCode
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: "text", length: 5 })
+    @Column({ type: "text" })
     name: string;
 
-    @Column({ type: "smallmoney" })
+    @Column({ type: "decimal" })
     amount: number;
 
     @ManyToOne(type => PriceCatalog, { nullable: true, cascade: false})

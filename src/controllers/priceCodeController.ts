@@ -11,7 +11,7 @@ const repo = getManager().getRepository(PriceCode);
  * @param req express Request Object
  * @param res express Response Object
  */
-const getPriceCodes = async (req: Request, res: Response): Promise<Response> => {
+export const getPriceCodes = async (req: Request, res: Response): Promise<Response> => {
 
     const priceCodes = await repo.find();
     return res.json(priceCodes).sendStatus(200);
@@ -22,7 +22,7 @@ const getPriceCodes = async (req: Request, res: Response): Promise<Response> => 
  * @param req express Request Object
  * @param res express Response Object
  */
-const getSomePriceCodes = async (req: Request, res: Response): Promise<Response> => {
+export const getSomePriceCodes = async (req: Request, res: Response): Promise<Response> => {
     
     //look at when you skip and take a few price codes and not everything.
     const priceCodes = await repo.createQueryBuilder()
@@ -42,7 +42,7 @@ const getSomePriceCodes = async (req: Request, res: Response): Promise<Response>
  * @param req express Request Object
  * @param res express Response Object
  */
-const getOnePriceCode = async (req: Request, res: Response) => {
+export const getOnePriceCode = async (req: Request, res: Response) => {
 
     if(req.params.priceCodeId === undefined || req.params.priceCodeId === 0 || req.params.priceCodeId === ""){
         return res.sendStatus(404);
@@ -56,7 +56,7 @@ const getOnePriceCode = async (req: Request, res: Response) => {
  * @param req express Request Object
  * @param res express Response Object
  */
-const createPriceCode = async (req: Request, res: Response) => {
+export const createPriceCode = async (req: Request, res: Response) => {
     if(req.params.priceCode !== undefined || req.params.priceCode !== null){
         const model = await repo.create(req.params.priceCode);
         return res.json(model).sendStatus(200);
